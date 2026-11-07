@@ -6,11 +6,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="¡Viene un bebé! Estás invitado al Baby Shower de Adriel. Sábado 21 de noviembre de 2026. Confirma tu asistencia por WhatsApp." />
 <meta name="theme-color" content="#cfe8ff" />
-<meta property="og:title" content="Baby Shower de Adriel — Invitación" />
-<meta property="og:description" content="¡Es niño! Te esperamos el 21 de noviembre. Confirma tu asistencia." />
+<link rel="canonical" href="https://invitacion-adriel.netlify.app/" />
+<meta property="og:site_name" content="Baby Shower de Adriel" />
+<meta property="og:title" content="👶 Baby Shower de Adriel — Estás invitado" />
+<meta property="og:description" content="¡Es niño! Te esperamos el sábado 21 de noviembre. Abre la invitación y confirma tu asistencia." />
 <meta property="og:type" content="website" />
-    <meta property="og:image" content="Pareja.jpg" />
+<meta property="og:url" content="https://invitacion-adriel.netlify.app/" />
+<meta property="og:locale" content="es_ES" />
+<meta property="og:image" content="https://invitacion-adriel.netlify.app/ALVARO/UNO.jpeg" />
+<meta property="og:image:secure_url" content="https://invitacion-adriel.netlify.app/ALVARO/UNO.jpeg" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Invitación del Baby Shower de Adriel" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="👶 Baby Shower de Adriel — Estás invitado" />
+<meta name="twitter:description" content="¡Es niño! Te esperamos el sábado 21 de noviembre." />
+<meta name="twitter:image" content="https://invitacion-adriel.netlify.app/ALVARO/UNO.jpeg" />
 <title>🍼 Baby Shower de Adriel — Invitación</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23cfe8ff'/%3E%3Ctext x='32' y='44' font-size='32' text-anchor='middle'%3E🍼%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -355,20 +367,49 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 @keyframes twinkle { 0%, 100% { opacity: 0; transform: scale(.4) rotate(0); } 50% { opacity: 1; transform: scale(1.1) rotate(45deg); } }
 
 .cover-hint {
-  margin-top: 52px;
-  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+  max-width: 92%;
+  margin: 52px auto 0;
+  padding: 11px 24px 11px 20px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .62);
+  border: 1px solid rgba(74, 157, 232, .28);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 26px -16px rgba(74, 157, 232, .55);
   color: var(--blue-deep);
-  font-size: .98rem;
+  font-weight: 700;
+  font-size: .78rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  line-height: 1;
 }
-.cover-hint .hint-text { animation: hintPulse 1.8s ease-in-out infinite; display: inline-block; }
-.hint-tap { display: inline-block; animation: tapBounce 1.4s ease-in-out infinite; }
-@keyframes hintPulse { 0%, 100% { opacity: .65; } 50% { opacity: 1; } }
-@keyframes tapBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.cover-hint .hint-text { white-space: nowrap; }
+@media (max-width: 400px) { .cover-hint { font-size: .68rem; letter-spacing: .1em; padding: 10px 18px 10px 16px; gap: 10px; } }
+.hint-dot {
+  position: relative;
+  flex: 0 0 auto;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--blue-deep);
+}
+.hint-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid var(--blue-deep);
+  animation: hintRipple 2s ease-out infinite;
+}
+@keyframes hintRipple { 0% { transform: scale(1); opacity: .8; } 100% { transform: scale(3.4); opacity: 0; } }
 .cover.opening [data-cover-el] { animation: coverOut .55s ease forwards; }
 @keyframes coverOut { to { opacity: 0; transform: translateY(-14px); } }
 
 @media (prefers-reduced-motion: reduce) {
-  .envelope, .env-glow, .env-shadow, .spark { animation: none !important; }
+  .envelope, .env-glow, .env-shadow, .spark, .hint-dot::after { animation: none !important; }
 }
 
 /* ============ NAVBAR ============ */
@@ -388,11 +429,22 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .baby-brand-ico {
   width: 44px; height: 44px;
   display: grid; place-items: center;
-  font-size: 1.35rem;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--blue-deep);
   background: #fff;
+  border: 2px solid #fff;
   border-radius: 50%;
+  overflow: hidden;
   box-shadow: var(--shadow-soft);
   animation: floaty 3.5s ease-in-out infinite;
+}
+.baby-brand-ico img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
 }
 @keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 .baby-brand-txt {
@@ -607,25 +659,65 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .hero-title { line-height: 1; }
 .hero-name {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: clamp(5px, 1.4vw, 14px);
+  margin: 6px 0 4px;
+}
+.hero-name .blk {
+  --r: 0deg;
+  --s: clamp(48px, 13.4vw, 104px);
+  flex: 0 0 auto;
+  width: var(--s);
+  height: var(--s);
+  display: grid;
+  place-items: center;
   font-family: var(--font-head);
   font-weight: 800;
-  font-size: clamp(4rem, 15vw, 9.5rem);
-  background: linear-gradient(120deg, #4a9de8 0%, #4fc79a 45%, #a184f0 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  filter: drop-shadow(0 10px 24px rgba(142, 201, 255, 0.55));
-  animation: namePop .9s cubic-bezier(.22, 1.4, .36, 1) both .3s;
+  font-size: calc(var(--s) * .66);
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 3px 0 rgba(0, 0, 0, .13);
+  border-radius: 24%;
+  background: linear-gradient(160deg, var(--c1), var(--c2));
+  box-shadow:
+    inset 0 4px 0 rgba(255, 255, 255, .55),
+    inset 0 -4px 0 rgba(0, 0, 0, .07),
+    0 calc(var(--s) * .07) 0 var(--c3),
+    0 calc(var(--s) * .2) calc(var(--s) * .22) -8px rgba(74, 157, 232, .45);
+  transform: rotate(var(--r));
+  transition: transform .25s cubic-bezier(.22, 1.4, .36, 1);
+  animation:
+    blockDrop .85s cubic-bezier(.3, 1.2, .5, 1) backwards calc(.35s + var(--i) * .13s),
+    blockBob 4.2s ease-in-out infinite calc(1.6s + var(--i) * .25s);
+  cursor: default;
+  user-select: none;
 }
-@keyframes namePop {
-  from { transform: scale(.7) rotate(-4deg); opacity: 0; }
-  to { transform: scale(1) rotate(0); opacity: 1; }
+.hero-name .blk:hover { transform: rotate(0deg) translateY(-8px) scale(1.06); }
+.hero-name .b1 { --i: 0; --r: -5deg; --c1: #8ec9ff; --c2: #4a9de8; --c3: #3680c6; }
+.hero-name .b2 { --i: 1; --r: 4deg;  --c1: #a8e6cf; --c2: #4fc79a; --c3: #34a07a; }
+.hero-name .b3 { --i: 2; --r: -3deg; --c1: #d9c7ff; --c2: #a184f0; --c3: #7e63cf; }
+.hero-name .b4 { --i: 3; --r: 5deg;  --c1: #ffd3b6; --c2: #ff9a6b; --c3: #e0764a; }
+.hero-name .b5 { --i: 4; --r: -4deg; --c1: #ffc9de; --c2: #ff8fb8; --c3: #e06c97; }
+.hero-name .b6 { --i: 5; --r: 3deg;  --c1: #ffe8a3; --c2: #ffc94d; --c3: #dba22b; }
+@keyframes blockDrop {
+  0%   { transform: translateY(-160px) rotate(calc(var(--r) - 25deg)) scale(.85); opacity: 0; }
+  55%  { transform: translateY(10px) rotate(var(--r)); opacity: 1; }
+  75%  { transform: translateY(-8px) rotate(var(--r)); }
+  100% { transform: translateY(0) rotate(var(--r)); opacity: 1; }
+}
+@keyframes blockBob {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-name .blk { animation: none; transition: none; }
 }
 .hero-subname {
   display: block;
-  margin-top: 8px;
+  margin-top: 22px;
   font-family: var(--font-head);
   font-weight: 600;
   font-size: clamp(1.3rem, 4.5vw, 2.3rem);
@@ -1071,22 +1163,50 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .hc:hover img { transform: scale(1.15); }
 .hc-star {
+  --bs: clamp(26px, 8vw, 58px);
+  container-type: inline-size;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2px;
   background: var(--grad);
-  color: #26304a;
-  text-align: center;
-  line-height: 1;
-  font-size: clamp(24px, 4vw, 36px);
 }
-.hc-star span {
+@supports (width: 1cqw) { .hc-star { --bs: 25cqw; } }
+.hc-star .bk {
+  display: grid;
+  grid-template-columns: repeat(3, var(--bs));
+  gap: calc(var(--bs) * .17);
+}
+.hc-star .bk b {
+  --r: 0deg;
+  width: var(--bs);
+  height: var(--bs);
+  display: grid;
+  place-items: center;
+  border-radius: 24%;
   font-family: "Baloo 2", cursive;
   font-weight: 800;
-  font-size: clamp(11px, 1.8vw, 17px);
-  letter-spacing: .4px;
+  font-size: calc(var(--bs) * .66);
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, .13);
+  background: linear-gradient(160deg, var(--c1), var(--c2));
+  box-shadow:
+    inset 0 3px 0 rgba(255, 255, 255, .5),
+    inset 0 -3px 0 rgba(0, 0, 0, .07),
+    0 calc(var(--bs) * .09) 0 var(--c3);
+  transform: rotate(var(--r));
+}
+.photo-grid.on .hc-star .bk b {
+  animation: starDrop 7s infinite backwards calc(.8s + var(--i) * .13s);
+}
+@keyframes starDrop {
+  0%   { transform: translateY(-160%) rotate(calc(var(--r) - 22deg)); opacity: 0; }
+  5%   { transform: translateY(10%) rotate(var(--r)); opacity: 1; }
+  8%   { transform: translateY(-7%) rotate(var(--r)); }
+  11%, 100% { transform: translateY(0) rotate(var(--r)); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .photo-grid.on .hc-star .bk b { animation: none; }
 }
 @media (max-width: 575.98px) {
   .photo-grid { --pg-gap: 5px; }
@@ -1288,6 +1408,36 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .footer-social a:hover { transform: translateY(-4px); background: var(--grad); box-shadow: var(--shadow); }
 .footer-copy { font-size: .85rem; color: #5b688a; font-weight: 600; }
+.footer-credit {
+  max-width: 520px;
+  margin: 38px auto 0;
+  padding-top: 22px;
+  border-top: 1px solid rgba(74, 157, 232, 0.28);
+}
+.footer .footer-credit-main {
+  font-family: var(--font-head);
+  font-size: 1.05rem;
+  color: #26304a;
+  margin: 0;
+}
+.footer .footer-credit-main strong {
+  color: var(--blue-deep);
+  letter-spacing: .12em;
+}
+.footer .footer-credit-sub { font-size: .9rem; margin: 6px 0 0; }
+.footer-credit-sub a {
+  color: var(--blue-deep);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+.footer-credit-sub a:hover { color: var(--lav-deep); }
+.footer .footer-credit-legal {
+  font-size: .78rem;
+  color: #5b688a;
+  font-weight: 500;
+  margin: 12px 0 0;
+}
 
 /* ============ MODAL ============ */
 .modal {
@@ -1530,7 +1680,7 @@ html.lenis, html.lenis body { height: auto; }
     </button>
 
     <p class="cover-hint" id="coverHint" data-cover-el>
-      <span class="hint-tap">👆</span> <span class="hint-text">Toca el sobre para abrirlo</span>
+      <span class="hint-dot" aria-hidden="true"></span><span class="hint-text">Toca el sobre para abrirlo</span>
     </p>
   </div>
 </div>
@@ -1543,7 +1693,7 @@ html.lenis, html.lenis body { height: auto; }
 <nav class="navbar navbar-expand-lg fixed-top baby-nav" id="navbar">
   <div class="container">
     <a href="#inicio" class="navbar-brand baby-brand">
-      <span class="baby-brand-ico">👶</span>
+      <span class="baby-brand-ico"><img src="ALVARO/DIEZ.jpeg" alt="" onerror="this.replaceWith('A')" /></span>
       <span class="baby-brand-txt">Adriel <em>2026</em></span>
     </a>
 
@@ -1598,7 +1748,9 @@ html.lenis, html.lenis body { height: auto; }
     <span class="hero-badge" data-aos="fade-up">¡Viene un bebé! · Es niño 👣</span>
     <p class="hero-eyebrow mt-4 mb-0" data-aos="fade-up" data-aos-delay="80">Baby Shower</p>
     <h1 class="hero-title" data-aos="zoom-in" data-aos-delay="140">
-      <span class="hero-name">Adriel</span>
+      <span class="hero-name" role="img" aria-label="Adriel">
+        <span class="blk b1" aria-hidden="true">A</span><span class="blk b2" aria-hidden="true">D</span><span class="blk b3" aria-hidden="true">R</span><span class="blk b4" aria-hidden="true">I</span><span class="blk b5" aria-hidden="true">E</span><span class="blk b6" aria-hidden="true">L</span>
+      </span>
       <span class="hero-subname">ya casi llega</span>
     </h1>
     <div class="d-flex flex-wrap justify-content-center gap-2 mt-4" data-aos="fade-up" data-aos-delay="220">
@@ -1800,11 +1952,20 @@ html.lenis, html.lenis body { height: auto; }
       <div class="hc"><img src="ALVARO/CINCO.jpeg" alt="Recién nacido" loading="lazy" /></div>
       <div class="hc"><img src="ALVARO/SEIS.jpeg" alt="Momento en familia" loading="lazy" /></div>
       <div class="hc"><img src="ALVARO/SIETE.jpeg" alt="Juguetes de madera" loading="lazy" /></div>
-      <div class="hc hc-star" aria-label="Bebé Adriel">👣<span>Adriel</span></div>
+      <div class="hc hc-star" role="img" aria-label="Adriel">
+        <div class="bk" aria-hidden="true">
+          <b style="--i:0;--r:-5deg;--c1:#8ec9ff;--c2:#4a9de8;--c3:#3680c6">A</b>
+          <b style="--i:1;--r:4deg;--c1:#a8e6cf;--c2:#4fc79a;--c3:#34a07a">D</b>
+          <b style="--i:2;--r:-3deg;--c1:#d9c7ff;--c2:#a184f0;--c3:#7e63cf">R</b>
+          <b style="--i:3;--r:5deg;--c1:#ffd3b6;--c2:#ff9a6b;--c3:#e0764a">I</b>
+          <b style="--i:4;--r:-4deg;--c1:#ffc9de;--c2:#ff8fb8;--c3:#e06c97">E</b>
+          <b style="--i:5;--r:3deg;--c1:#ffe8a3;--c2:#ffc94d;--c3:#dba22b">L</b>
+        </div>
+      </div>
       <div class="hc"><img src="ALVARO/OCHO.jpeg" alt="Abrazo de bebé" loading="lazy" /></div>
       <div class="hc"><img src="ALVARO/NUEVE.jpeg" alt="Zapatos de bebé" loading="lazy" /></div>
       <div class="hc"><img src="ALVARO/TRES.jpeg" alt="Pies de recién nacido" loading="lazy" /></div>
-      <div class="hc"><img src="https://images.unsplash.com/photo-1522771930-78848d9293e8?auto=format&fit=crop&q=80&w=500&h=500" alt="Sesión de bebé" loading="lazy" /></div>
+      <div class="hc"><img src="ALVARO/DIEZ.jpeg" alt="Sesión de bebé" loading="lazy" /></div>
     </div>
   </div>
 </section>
@@ -1876,7 +2037,11 @@ html.lenis, html.lenis body { height: auto; }
         <a href="#" id="footWa" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
         <a href="#inicio" aria-label="Volver arriba">Volver arriba ↑</a>
       </div>
-      <p class="footer-copy mt-4 mb-0">Hecho con 👣 para celebrar a Adriel · <span id="year">2026</span></p>
+      <div class="footer-credit">
+        <p class="footer-credit-main">Realizado por <strong>IMAGINALO</strong></p>
+        <p class="footer-credit-sub">¿Te gustó esta invitación? Contáctanos al <a href="https://wa.me/59168171312?text=Hola%20IMAGINALO%2C%20vi%20la%20invitaci%C3%B3n%20del%20Baby%20Shower%20de%20Adriel%20y%20quiero%20una%20para%20mi%20evento." target="_blank" rel="noopener" aria-label="Contactar a IMAGINALO por WhatsApp">68171312</a></p>
+        <p class="footer-credit-legal">© <span id="year">2026</span> IMAGINALO · Todos los derechos reservados</p>
+      </div>
     </div>
   </footer>
 
@@ -2252,8 +2417,15 @@ html.lenis, html.lenis body { height: auto; }
     "Baby Brother.mp3",
   ];
 
+  /* Fragmento que se reproduce: empieza en MUSIC_START (segundos) y dura MUSIC_LENGTH.
+     Al terminar baja suave y vuelve a empezar. Cambia MUSIC_START para elegir otro tramo. */
+  const MUSIC_START = 0;
+  const MUSIC_LENGTH = 40;
+  const MUSIC_FADE = 1.5; /* segundos de fundido al final del fragmento */
+
   const music = {
     audio: null,
+    ending: false,
     playing: false,
     btn: null,
     fadeT: null,
@@ -2263,11 +2435,42 @@ html.lenis, html.lenis body { height: auto; }
     ensure() {
       if (this.audio) return;
       this.audio = new Audio();
-      this.audio.loop = true;
+      this.audio.loop = false;
       this.audio.preload = "auto";
       this.audio.volume = 0;
       this.audio.addEventListener("error", () => this.nextSource());
+      this.audio.addEventListener("loadedmetadata", () => {
+        if (MUSIC_START > 0 && this.audio.duration > MUSIC_START) this.audio.currentTime = MUSIC_START;
+      });
+      this.audio.addEventListener("timeupdate", () => this.checkSegment());
+      this.audio.addEventListener("ended", () => this.restartSegment());
       this.audio.src = encodeURI(MUSIC_FILES[0]);
+    },
+
+    segmentEnd() {
+      const d = this.audio.duration;
+      return Math.min(MUSIC_START + MUSIC_LENGTH, isFinite(d) ? d : Infinity);
+    },
+
+    checkSegment() {
+      if (!this.playing) return;
+      const t = this.audio.currentTime, end = this.segmentEnd();
+      if (!this.ending && t >= end - MUSIC_FADE) {
+        this.ending = true;
+        this.fadeTo(0, MUSIC_FADE * 900);
+      }
+      if (t >= end - 0.05) this.restartSegment();
+    },
+
+    restartSegment() {
+      if (!this.audio) return;
+      this.audio.currentTime = MUSIC_START;
+      this.ending = false;
+      if (this.playing) {
+        const p = this.audio.play();
+        if (p && p.catch) p.catch(() => {});
+        this.fadeTo(this.volume, 1400);
+      }
     },
 
     nextSource() {
@@ -2321,6 +2524,7 @@ html.lenis, html.lenis body { height: auto; }
     stop() {
       if (!this.audio) return;
       this.playing = false;
+      this.ending = false;
       this.sync();
       this.fadeTo(0, 500, () => { if (!this.playing) this.audio.pause(); });
     },
