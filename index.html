@@ -13,16 +13,16 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://invitacion-adriel.netlify.app/" />
 <meta property="og:locale" content="es_ES" />
-<meta property="og:image" content="https://invitacion-adriel.netlify.app/ALVARO/DIEZ.jpeg" />
-<meta property="og:image:secure_url" content="https://invitacion-adriel.netlify.app/ALVARO/DIEZ.jpeg" />
-<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image" content="https://invitacion-adriel.netlify.app/preview-adriel.png" />
+<meta property="og:image:secure_url" content="https://invitacion-adriel.netlify.app/preview-adriel.png" />
+<meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Invitación del Baby Shower de Adriel" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="👶 Baby Shower de Adriel — Estás invitado" />
 <meta name="twitter:description" content="¡Es niño! Te esperamos el sábado 21 de noviembre." />
-<meta name="twitter:image" content="https://invitacion-adriel.netlify.app/ALVARO/DIEZ.jpeg" />
+<meta name="twitter:image" content="https://invitacion-adriel.netlify.app/preview-adriel.png" />
 <title>🍼 Baby Shower de Adriel — Invitación</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23cfe8ff'/%3E%3Ctext x='32' y='44' font-size='32' text-anchor='middle'%3E🍼%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -2082,7 +2082,7 @@ html.lenis, html.lenis body { height: auto; }
 
   /* ---------- CONFIG (edita aquí) ---------- */
   const CONFIG = {
-    whatsapp: "59168171312", // ← número con código de país, sin +
+    whatsapp: "59177798893", // ← número con código de país, sin +
     babyName: "Adriel",
     eventDate: "2026-11-21T15:00:00-04:00",
   };
@@ -2401,7 +2401,8 @@ html.lenis, html.lenis body { height: auto; }
       note.textContent = "¡Listo! Abriendo WhatsApp para enviar tu confirmación…";
       note.className = "form-note ok text-center mt-3 mb-0";
       burst(0.5, 0.6, 150);
-      setTimeout(() => window.open(waLink(text), "_blank"), 700);
+      const w = window.open(waLink(text), "_blank");
+      if (!w) window.location.href = waLink(text);
     });
   }
 
